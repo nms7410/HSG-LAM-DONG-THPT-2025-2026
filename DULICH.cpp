@@ -48,10 +48,10 @@ void MySolution(){
 
     FOR (mask, 0, N - 1)
         FOR (u, 0, n - 1) {
-            if (!(mask & (1 << u))) continue;
+            if (!BIT(mask, u)) continue;
             if (dp[mask][u] == inf) continue;
             FOR (v, 0, n - 1) {
-                if (mask & (1 << v)) continue;
+                if (BIT(mask, v)) continue;
                 int new_mask = mask | (1 << v);
                 dp[new_mask][v] = min(dp[new_mask][v], dp[mask][u] + c[u][v]);
             }
