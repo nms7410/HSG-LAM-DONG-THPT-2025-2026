@@ -52,7 +52,7 @@ void MySolution(){
             if (dp[mask][u] == inf) continue;
             FOR (v, 0, n - 1) {
                 if (BIT(mask, v)) continue;
-                int new_mask = mask | (1 << v);
+                int new_mask = ON_BIT(mask, v);
                 dp[new_mask][v] = min(dp[new_mask][v], dp[mask][u] + c[u][v]);
             }
         }
